@@ -3,20 +3,30 @@
     {% load static %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="{% static 'AppInvocador/css/main.css' %}" rel="stylesheet"/>
+    <link href="{% static 'AppInvocador/css/main.css'%}" rel="stylesheet"/>
     <title>Home</title>
   </head>
   <body>
+    <nav><div><ul>
+      <li><a href="{% url 'lobby' %}">Lobby</a></li>
+      <li><a href="{% url 'partida' %}">Partida</a></li>
+      <li><a href="{% url 'invocador' %}">Invocador</a></li>
+      <li><a href="{% url 'coach' %}">Coach</a></li>
+      <li><a href="{% url 'grieta' %}">Grieta</a></li>
+    </ul></div></nav>
     <header class="header">
       <div class="container">
         <h1 class="header__h1">Bienvenidos a la Grieta del Madeo</h1>
       </div>
     </header>
+    {% block content %}
     <div class="container">
       <p>
         Sean todos bienvenidos al peor lugar para perder el tiempo
       </p>
     </div>
+    {% endblock content %}
+
   </body>
   </body>
 </html>
