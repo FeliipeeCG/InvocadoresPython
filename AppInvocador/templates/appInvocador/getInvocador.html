@@ -1,0 +1,19 @@
+<div>
+  {% extends "AppInvocador/invocador.html" %} {% load static %} {% block
+  getInvocador %}
+</div>
+<body>
+  {% block content %}
+  <div>
+    <p>Consultar Invocador</p>
+    <form action="/AppInvocador/buscarInvocador/" method="GET">
+      <input placeholder="Nombre" type="text" name="nombre" id="nombre" />
+      <input type="submit" value="Buscar" />
+    </form>
+    {% if invocadores %} {% for invocador in invocadores %}
+    <li>{{invocador.nombre}}</li>
+    <li>{{invocador.nick}}</li>
+    <li>{{invocador.email}}</li>
+  </div>
+  {% endblock content %}
+</body>

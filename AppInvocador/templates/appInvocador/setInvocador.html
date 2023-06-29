@@ -1,0 +1,11 @@
+{% extends "AppInvocador/invocador.html" %} {% load static %} {%
+blocksetInvocador %}
+<p>Crear invocador</p>
+<form action="/AppInvocador/setInvocador/" method="post">
+  {% csrf_token %}
+  <table>
+    {{ miFormulario.as_table }}
+  </table>
+  <input type="submit" value="enviar" />
+</form>
+{% endblock %}
