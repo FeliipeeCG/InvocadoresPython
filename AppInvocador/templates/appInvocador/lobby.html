@@ -7,7 +7,7 @@
     <title>Home</title>
   </head>
   <body>
-    <nav><div><ul>
+    <nav><div><ul class="nav">
       <li><a href="{% url 'lobby' %}">Lobby</a></li>
       <li><a href="{% url 'partida' %}">Partida</a></li>
       <li><a href="{% url 'invocador' %}">Invocador</a></li>
@@ -20,11 +20,11 @@
       </div>
     </header>
     {% block content %}
-    <div class="container">
-      <p>
+    <div>
+      <h3>
         Sean todos bienvenidos al peor lugar para perder el tiempo
-      </p>
-    </div>
+      </h3>
+          </div>
     {% endblock content %}
 
   </body>

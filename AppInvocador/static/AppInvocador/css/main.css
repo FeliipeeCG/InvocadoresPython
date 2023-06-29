@@ -10,6 +10,7 @@ h1 {
 h2 {
   text-align: center;
   font-size: 3.2rem;
+  color: yellow;
 }
 h3 {
   color: rgb(129, 9, 226);
@@ -26,26 +27,28 @@ body {
 td {
   color: rgb(255, 255, 255);
 }
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
+.nav {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
 
-li {
-  float: left;
-}
+  li {
+    float: left;
+  }
 
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
 
-li a:hover {
-  background-color: #e7c606;
+  li a:hover {
+    background-color: #e7c606;
+  }
 }
