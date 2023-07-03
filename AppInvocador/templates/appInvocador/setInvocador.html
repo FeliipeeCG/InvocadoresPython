@@ -1,5 +1,5 @@
-{% extends "AppInvocador/invocador.html" %} {% load static %} {%
-blocksetInvocador %}
+{% extends "AppInvocador/lolero.html" %} {% load static %} {% block setInvocador
+%}
 <p>Crear invocador</p>
 <form action="/AppInvocador/setInvocador/" method="post">
   {% csrf_token %}
@@ -8,4 +8,3 @@ blocksetInvocador %}
   </table>
   <input type="submit" value="enviar" />
 </form>
-{% endblock %}

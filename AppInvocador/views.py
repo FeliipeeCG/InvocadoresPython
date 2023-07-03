@@ -14,8 +14,8 @@ def grieta(request):
     return render(request, "AppInvocador/grieta.html")
 
 
-def invocador(request):
-    return render(request, "AppInvocador/invocador.html")
+def lolero(request):
+    return render(request, "AppInvocador/lolero.html")
 
 
 def coach(request):

@@ -1,5 +1,5 @@
 <div>
-  {% extends "AppInvocador/invocador.html" %} {% load static %} {% block
+  {% extends "AppInvocador/lolero.html" %} {% load static %} {% block
   getInvocador %}
 </div>
 <body>
@@ -14,6 +14,7 @@
     <li>{{invocador.nombre}}</li>
     <li>{{invocador.nick}}</li>
     <li>{{invocador.email}}</li>
+    {% endfor %} {% endif %}
   </div>
   {% endblock content %}
 </body>
