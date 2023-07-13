@@ -8,10 +8,18 @@
   </head>
   <body>
     <nav><div><ul class="nav">
-      <li><a href="{% url 'lobby' %}">Lobby</a></li>
+      <li><a  href="{% url 'lobby' %}">Lobby</a></li>
       <li><a href="{% url 'partida' %}">Partida</a></li>
       <li><a href="{% url 'lolero' %}">Lolero</a></li>
       <li><a href="{% url 'coach' %}">Coach</a></li>
+      <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Invocadores</a>
+    <div class="dropdown-content">
+      <a href="{% url 'setInvocador' %}">Agregar Invocador</a>
+      <a href="{% url 'getInvocador' %}">Buscar Invocador</a>
+    </div>
+  </li>
+      <li style="float:right"><a class="active" href="https://www.instagram.com/feliipeecg/" target="_blank">IG</a> </li>
     </ul></div></nav>
     <header class="header">
       <div class="container">
@@ -21,7 +29,7 @@
     {% block content %}
     <div>
       <p>
-        Sean todos bienvenidos al peor lugar para perder el tiempo
+        Sean todos bienvenidos al peor lugar para perder el tiempo :)
       </p>
           </div>
     {% endblock content %}
