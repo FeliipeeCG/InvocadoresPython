@@ -1,20 +1,25 @@
 <div>
-  {% extends "AppInvocador/lolero.html" %} {% load static %} {% block
-  getInvocador %}
-</div>
-<body>
-  {% block content %}
+  {% extends "AppInvocador/lolero.html" %} {% load static %} {% block content %}
+
   <div>
-    <p>Consultar Invocador</p>
+    <p>BUSCAR INVOCADOR</p>
     <form action="/AppInvocador/buscarInvocador/" method="GET">
       <input placeholder="Nombre" type="text" name="nombre" id="nombre" />
       <input type="submit" value="Buscar" />
     </form>
-    {% if invocadores %} {% for invocador in invocadores %}
-    <li>{{invocador.nombre}}</li>
-    <li>{{invocador.nick}}</li>
-    <li>{{invocador.email}}</li>
-    {% endfor %} {% endif %}
+    <br />
+    <div class="invocadorEncontrado">
+      {% if invocadores %} {% for invocador in invocadores %}
+      <img
+        src="https://pbs.twimg.com/media/CQFJSAxW8AA3YMj.png"
+        alt="invocadorEncontrado"
+        height="100"
+        width="100"
+      />
+      <p>Nombre: {{invocador.nombre}}</p>
+      <p>Nick: {{invocador.nick}}</p>
+      {% endfor %} {% endif %}
+    </div>
   </div>
   {% endblock content %}
-</body>
+</div>

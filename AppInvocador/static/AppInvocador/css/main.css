@@ -109,3 +109,7 @@ li.dropdown {
 label {
   color: whitesmoke;
 }
+.invocadorEncontrado {
+  font-size: 2rem;
+  font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman;
+}

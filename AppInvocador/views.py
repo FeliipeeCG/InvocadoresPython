@@ -35,7 +35,7 @@ def setInvocador(request):
             Invocador = invocador(
                 nombre=data["nombre"], nick=data["nick"], email=data["email"])
             Invocador.save()
-            return render(request, "AppInvocador/lobby.html")
+            return render(request, "AppInvocador/nuevoInvocador.html")
     else:
         miFormulario = formSetInvocador()
     return render(request, "AppInvocador/setInvocador.html", {"miFormulario": miFormulario})
@@ -49,8 +49,8 @@ def buscarInvocador(request):
     if request.GET["nombre"]:
         nombre = request.GET["nombre"]
         invocadores = invocador.objects.filter(nombre=nombre)
-        return render(request, "AppInvocador/getInvocador.html", {"invocador": invocadores})
+        return render(request, "AppInvocador/getInvocador.html", {"invocadores": invocadores})
     else:
-        respuesta = "No se envio nada"
+        return render(request, "AppInvocador/errorInvocador.html")
 
     return HttpResponse(respuesta)

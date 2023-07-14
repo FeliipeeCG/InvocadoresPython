@@ -9,7 +9,7 @@ class invocador(models.Model):
     email = models.EmailField()
 
     def __str__(self):
-        return f"nombre: {self.nombre} - nick: {self.nick} - email: {self.email} "
+        return f"nombre: {self.nombre} / nick: {self.nick} / email: {self.email} "
 
 
 class coach(models.Model):

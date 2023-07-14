@@ -3,9 +3,10 @@
   <p>Crear invocador</p>
   <form action="/AppInvocador/setInvocador/" method="post">
     {% csrf_token %}
-    <input placeholder="Nombre" type="text" name="nombre" />
-    <input placeholder="Nick de Invocador" type="text" name="nick" />
-    <input placeholder="Mail" type="email" name="email" />
+    <table>
+      {{ miFormulario.as_table }}
+    </table>
+    <br />
     <input type="submit" value="Enviar" />
   </form>
   {% endblock content %}
