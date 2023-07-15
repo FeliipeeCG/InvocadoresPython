@@ -1,0 +1,13 @@
+<div>
+  {% extends "AppInvocador/lolero.html" %} {% load static %} {% block content %}
+  <h2>EDITANDO AL INVOCADOR</h2>
+  <form action="" method="post">
+    {% csrf_token %}
+    <table>
+      {{miFormulario.as_table}}
+    </table>
+    <br />
+    <input class="botonPiola4" type="submit" value="Enviar" />
+  </form>
+  {% endblock content %}
+</div>

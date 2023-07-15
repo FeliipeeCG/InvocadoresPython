@@ -1,5 +1,5 @@
 from django.urls import path
-from AppInvocador.views import lobby, grieta, lolero, coach, partida, setInvocador, getInvocador, buscarInvocador
+from AppInvocador.views import *
 
 urlpatterns = [
     path('lobby/', lobby, name="lobby"),
@@ -10,4 +10,9 @@ urlpatterns = [
     path('setInvocador/', setInvocador, name="setInvocador"),
     path('getInvocador/', getInvocador, name="getInvocador"),
     path('buscarInvocador/', buscarInvocador, name="buscarInvocador"),
+    path('eliminarInvocador/<nombre_invocador>',
+         eliminarInvocador, name="eliminarInvocador"),
+    path('editarInvocador/<nombre_invocador>',
+         editarInvocador, name="editarInvocador"),
+    path('editarInvocador/', editarInvocador, name="editarInvocador"),
 ]

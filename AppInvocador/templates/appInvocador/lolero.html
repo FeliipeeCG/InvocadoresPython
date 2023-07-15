@@ -1,6 +1,47 @@
 <div>
   {% extends "AppInvocador/lobby.html" %} {% load static %} {% block content %}
-  <p>Bienvenidos Loleros</p>
+  <h2>LOLEROS :)</h2>
+  <table>
+    <tr>
+      <th>NOMBRE</th>
+      <th>NICK</th>
+      <th>ELIMINAR</th>
+      <th>EDITAR</th>
+    </tr>
+
+    {% for invocador in Invocadores%}
+    <tr>
+      <td>{{invocador.nombre}}</td>
+      <td>{{invocador.nick}}</td>
+      <td>
+        <button class="botonPiola3">
+          <a
+            href="{% url 'eliminarInvocador' invocador.nombre %}"
+            text-decoration:none
+            >X</a
+          >
+        </button>
+      </td>
+      <td>
+        <button class="botonPiola4">
+          <a
+            href="{% url 'editarInvocador' invocador.nombre %}"
+            text-decoration:none
+            >EDIT</a
+          >
+        </button>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  <!--div>
+    <h2>EDITAR INVOCADOR</h2>
+    <form action="/AppInvocador/editarInvocador/" method="post"> {% csrf_token %}
+      <table>
+        {{miFormulario.as_table}}
+      </table>
+    </form>
+  </!--div-->
   <div class="fromSetInvocador">{% block setInvocador %} {% endblock %}</div>
   <div class="fromGetInvocador">{% block getInvocador %} {% endblock %}</div>
   {% endblock content %}

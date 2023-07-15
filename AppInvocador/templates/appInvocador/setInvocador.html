@@ -3,11 +3,31 @@
   <p>Crear invocador</p>
   <form action="/AppInvocador/setInvocador/" method="post">
     {% csrf_token %}
-    <table>
+    <!--table>
       {{ miFormulario.as_table }}
-    </table>
-    <br />
-    <input type="submit" value="Enviar" />
+    </!--table-->
+    <input
+      class="botonPiola"
+      placeholder="nombre"
+      type="text"
+      name="nombre"
+      required
+    />
+    <input
+      class="botonPiola"
+      placeholder="nick"
+      type="text"
+      name="nick"
+      required
+    />
+    <input
+      class="botonPiola"
+      placeholder="email"
+      type="email"
+      name="email"
+      required
+    />
+    <input class="botonPiola2" type="submit" value="Enviar" />
   </form>
   {% endblock content %}
 </div>

@@ -15,7 +15,8 @@ def grieta(request):
 
 
 def lolero(request):
-    return render(request, "AppInvocador/lolero.html")
+    Invocadores = invocador.objects.all()
+    return render(request, "AppInvocador/lolero.html", {"Invocadores": Invocadores})
 
 
 def coach(request):
@@ -54,3 +55,31 @@ def buscarInvocador(request):
         return render(request, "AppInvocador/errorInvocador.html")
 
     return HttpResponse(respuesta)
+
+
+def eliminarInvocador(request, nombre_invocador):
+    Invocador = invocador.objects.get(nombre=nombre_invocador)
+    Invocador.delete()
+    miFormulario = formSetInvocador()
+    Invocadores = invocador.objects.all()
+    return render(request, "AppInvocador/setInvocador.html", {"miFormulario": miFormulario, "Invocador": Invocador})
+
+
+def editarInvocador(request, nombre_invocador):
+    Invocador = invocador.objects.get(nombre=nombre_invocador)
+    if request.method == 'POST':
+        miFormulario = formSetInvocador(request.POST)
+        if miFormulario.is_valid:
+            print(miFormulario)
+            data = miFormulario.cleaned_data
+            Invocador.nombre = data['nombre']
+            Invocador.nick = data['nick']
+            Invocador.email = data['email']
+            Invocador.save()
+            miFormulario = formSetInvocador()
+            Invocadores = invocador.objects.all()
+            return render(request, "AppInvocador/setInvocador.html", {"miFormulario": miFormulario, "Invocador": Invocador})
+    else:
+        miFormulario = formSetInvocador(initial={
+                                        'nombre': invocador.nombre, 'nick': invocador.nick, 'email': invocador.email})
+    return render(request, "AppInvocador/editarInvocador.html", {"miFormulario": miFormulario})
