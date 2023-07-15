@@ -34,6 +34,7 @@ body {
 }
 td {
   color: rgb(255, 255, 255);
+  font-size: 1.5rem;
 }
 ul {
   list-style-type: none;
@@ -119,6 +120,7 @@ label {
 tr {
   font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman;
   text-align: center;
+  font-size: 2rem;
   color: rgb(192, 189, 19);
   background-position: center;
 }
@@ -156,4 +158,76 @@ a {
   font-size: 2rem;
   border-radius: 3em;
   border-radius: 10px;
+}
+.containerForm {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important ;
+  position: absolute !important ;
+  height: 100% !important;
+  width: 100% !important;
+  background-image: url(https://www.gamereactor.es/media/24/leaguelegends_3352473b.png);
+  background-size: cover;
+  background-position: center;
+}
+.containerForm2 {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important ;
+  position: absolute !important ;
+  height: 100% !important;
+  width: 100% !important;
+  background-image: url(https://youre.outof.cards/media/uploads/92/d4/92d401e5-05f3-48f5-9cdb-ef278f8038e5/teemo-level-2.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.containerForm h2 {
+  color: #000000;
+  text-shadow: 4px 4px 6px rgb(211, 164, 11);
+  font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman,
+    serif;
+}
+.containerForm2 h2 {
+  color: #000000;
+  text-shadow: 4px 4px 6px rgb(211, 164, 11);
+  font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman,
+    serif;
+}
+.containerForm p {
+  font-size: 2rem;
+  text-shadow: 2px 2px 3px rgb(37, 37, 36);
+  color: #cad80b;
+}
+.containerForm2 p {
+  font-size: 2rem;
+  color: #050200;
+}
+.containerForm a {
+  color: #cf0707;
+  font-size: 2.4rem;
+  font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman;
+}
+.containerForm2 a {
+  color: #cf0707;
+  font-size: 2.4rem;
+  text-shadow: 4px 4px 6px rgb(37, 37, 36);
+  font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman;
+}
+.formLogin {
+  font-weight: bold;
+  padding: 40px 20px 20px 20px;
+  border-radius: 5px;
+  width: 400px;
+  height: 450px;
+}
+.formLogin div {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.inputLogin {
+  border-radius: 10px;
+  width: 90%;
+  height: 30px;
 }

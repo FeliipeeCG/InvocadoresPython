@@ -1,4 +1,5 @@
 from django.urls import path
+from django.contrib.auth.views import LogoutView
 from AppInvocador.views import *
 
 urlpatterns = [
@@ -15,4 +16,7 @@ urlpatterns = [
     path('editarInvocador/<nombre_invocador>',
          editarInvocador, name="editarInvocador"),
     path('editarInvocador/', editarInvocador, name="editarInvocador"),
+    path('login/', loginApp, name="login"),
+    path('registro/', registro, name="registro"),
+    path('Logout/', LogoutView.as_view(template_name='AppInvocador/login.html'), name="Logout")
 ]

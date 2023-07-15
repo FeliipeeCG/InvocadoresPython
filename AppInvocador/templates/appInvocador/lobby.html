@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
     {% load static %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="{% static 'AppInvocador/css/main.css'%}" rel="stylesheet"/>
+    <link href="{% static 'AppInvocador/css/main.css'%}" rel="stylesheet" />
     <title>Home</title>
   </head>
   <body>
-    <nav><div><ul class="nav">
-      <li><a  href="{% url 'lobby' %}">Lobby</a></li>
-      <li><a href="{% url 'partida' %}">Partida</a></li>
-      <li><a href="{% url 'lolero' %}">Loleros</a></li>
-      <li><a href="{% url 'coach' %}">Coach</a></li>
-      <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Invocadores</a>
-    <div class="dropdown-content">
-      <a href="{% url 'setInvocador' %}">Agregar Invocador</a>
-      <a href="{% url 'getInvocador' %}">Buscar Invocador</a>
-    </div>
-  </li>
-      <li style="float:right"><a class="active" href="https://www.instagram.com/feliipeecg/" target="_blank">IG</a> </li>
-    </ul></div></nav>
+    <nav>
+      <div>
+        <ul class="nav">
+          <li><a href="{% url 'lobby' %}">Lobby</a></li>
+          <li><a href="{% url 'partida' %}">Partida</a></li>
+          <li><a href="{% url 'lolero' %}">Loleros</a></li>
+          <li><a href="{% url 'coach' %}">Coach</a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Invocadores</a>
+            <div class="dropdown-content">
+              <a href="{% url 'setInvocador' %}">Agregar Invocador</a>
+              <a href="{% url 'getInvocador' %}">Buscar Invocador</a>
+            </div>
+          </li>
+          <li><a href="{% url 'Logout' %}">Logout</a></li>
+          <li style="float: right">
+            <a
+              class="active"
+              href="https://www.instagram.com/feliipeecg/"
+              target="_blank"
+              >IG</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
     <header class="header">
       <div class="container">
         <h1 class="header__h1">Bienvenidos a la Grieta del Madeo</h1>
@@ -28,11 +41,8 @@
     </header>
     {% block content %}
     <div>
-      <p>
-        Sean todos bienvenidos al peor lugar para perder el tiempo :)
-      </p>
-          </div>
+      <p>Sean todos bienvenidos al peor lugar para perder el tiempo :)</p>
+    </div>
     {% endblock content %}
-
   </body>
 </html>

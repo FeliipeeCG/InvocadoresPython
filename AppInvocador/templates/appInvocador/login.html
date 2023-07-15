@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <html lang="en">
+    <head>
+      {% load static %}
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link href="{% static 'AppInvocador/css/main.css'%}" rel="stylesheet" />
+      <title>LOGIN</title>
+    </head>
+    <body>
+      <div class="containerForm">
+        <form action="" method="POST" class="formLogin">
+          {% csrf_token %}
+          <h2>Login para el Invocador</h2>
+          <div style="align-items: center">
+            <input
+              name="user"
+              type="text"
+              placeholder="user"
+              class="inputLogin"
+            />
+          </div>
+          <div>
+            <input
+              name="password"
+              type="password"
+              placeholder="password"
+              class="inputLogin"
+            />
+          </div>
+          <div>
+            <button class="botonPiola4" type="submit">LOGIN</button>
+          </div>
+          {% if error %}
+          <p style="color: rgb(0, 0, 0)">{{error}}</p>
+          {% endif%}
+          <p>
+            ¿Tenes una cuentas?<a href="/AppInvocador/registro"> Registrate</a>
+          </p>
+        </form>
+      </div>
+    </body>
+  </html>
+</html>

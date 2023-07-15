@@ -5,8 +5,8 @@
     <tr>
       <th>NOMBRE</th>
       <th>NICK</th>
-      <th>ELIMINAR</th>
       <th>EDITAR</th>
+      <th>/ELIMINAR</th>
     </tr>
 
     {% for invocador in Invocadores%}
@@ -14,20 +14,20 @@
       <td>{{invocador.nombre}}</td>
       <td>{{invocador.nick}}</td>
       <td>
-        <button class="botonPiola3">
-          <a
-            href="{% url 'eliminarInvocador' invocador.nombre %}"
-            text-decoration:none
-            >X</a
-          >
-        </button>
-      </td>
-      <td>
         <button class="botonPiola4">
           <a
             href="{% url 'editarInvocador' invocador.nombre %}"
             text-decoration:none
             >EDIT</a
+          >
+        </button>
+      </td>
+      <td>
+        <button class="botonPiola3">
+          <a
+            href="{% url 'eliminarInvocador' invocador.nombre %}"
+            text-decoration:none
+            >X</a
           >
         </button>
       </td>
