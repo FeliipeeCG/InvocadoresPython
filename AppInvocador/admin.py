@@ -4,3 +4,4 @@ from .models import *
 admin.site.register(partida)
 admin.site.register(coach)
 admin.site.register(invocador)
+admin.site.register(Avatar)

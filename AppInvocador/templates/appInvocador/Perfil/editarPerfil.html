@@ -1,0 +1,15 @@
+{% extends "../lobby.html" %} {% load static %} {% block content %}
+<h2>Editar Perfil</h2>
+<h3>{{user.username}}</h3>
+
+<form method="POST">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <input class="botonPiola4" type="submit" value="Editar perfil" />
+</form>
+<button class="botonPiola2">
+  <a href="/AppInvocador/Perfil/changePassword">Cambiar contraseña</a>
+</button>
+{% endblock content %}

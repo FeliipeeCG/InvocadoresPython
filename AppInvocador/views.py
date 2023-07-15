@@ -1,18 +1,21 @@
 from django.http import HttpResponse
 from django.template import loader
-from django.shortcuts import render
-from AppInvocador.models import invocador
-from AppInvocador.forms import formSetInvocador
+from django.shortcuts import render, redirect
+from AppInvocador.models import invocador, Avatar
+from AppInvocador.forms import formSetInvocador, UserEditForm, ChangePasswordForm, AvatarForm
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+
 
 # Create your views here.
 
 
 @login_required
 def lobby(request):
-    return render(request, "AppInvocador/lobby.html")
+    avatar = getavatar(request)
+    return render(request, "AppInvocador/lobby.html", {"avatar": avatar})
 
 
 @login_required
@@ -120,3 +123,77 @@ def registro(request):
             return render(request, 'AppInvocador/login.html')
     else:
         return render(request, 'AppInvocador/registro.html')
+
+
+@login_required
+def perfilview(request):
+    return render(request, 'AppInvocador/Perfil/perfil.html')
+
+
+@login_required
+def editarPerfil(request):
+    usuario = request.user
+    user_basic_info = User.objects.get(id=usuario.id)
+    if request.method == "POST":
+        form = UserEditForm(request.POST, instance=usuario)
+        if form.is_valid():
+            user_basic_info.username = form.cleaned_data.get('username')
+            user_basic_info.email = form.cleaned_data.get('email')
+            user_basic_info.first_name = form.cleaned_data.get('first_name')
+            user_basic_info.last_name = form.cleaned_data.get('last_name')
+            user_basic_info.save()
+            return render(request, 'AppInvocador/Perfil/perfil.html')
+    else:
+        form = UserEditForm(initial={'username': usuario.username, 'email': usuario.email,
+                            'first_name': usuario.first_name, 'last_name': usuario.last_name})
+        return render(request, 'AppInvocador/Perfil/editarPerfil.html', {"form": form})
+
+
+@login_required
+def changePassword(request):
+    usuario = request.user
+    if request.method == "POST":
+        form = ChangePasswordForm(data=request.POST, user=usuario)
+        if form.is_valid():
+            if request.POST['new_password1'] == request.POST['new_password2']:
+                user = form.save()
+                update_session_auth_hash(request, user)
+            return HttpResponse("Las constraseñas no coinciden")
+        return render(request, "AppInvocador/lobby.html")
+    else:
+        form = ChangePasswordForm(user=usuario)
+        return render(request, 'AppInvocador/Perfil/changePassword.html', {"form": form})
+
+
+def editAvatar(request):
+    if request.method == 'POST':
+        form = AvatarForm(request.POST, request.FILES)
+        print(form)
+        print(form.is_valid())
+        if form.is_valid():
+            user = User.objects.get(username=request.user)
+            avatar = Avatar(
+                user=user, image=form.cleaned_data['avatar'], id=request.user.id)
+            avatar.save()
+            avatar = Avatar.objects.filter(user=request.user.id)
+            try:
+                avatar = avatar[0].image.url
+            except:
+                avatar = None
+            return render(request, "AppCoder/lobby.html", {'avatar': avatar})
+    else:
+        try:
+            avatar = Avatar.objects.filter(user=request.user.id)
+            form = AvatarForm()
+        except:
+            form = AvatarForm()
+    return render(request, "AppInvocador/Perfil/avatar.html", {'form': form})
+
+
+def getavatar(request):
+    avatar = Avatar.objects.filter(user=request.user.id)
+    try:
+        avatar = avatar[0].image.url
+    except:
+        avatar = None
+    return avatar

@@ -1,0 +1,17 @@
+{% extends "../lobby.html"%} {% load static%} {%block content%}
+<div>
+  <ul>
+    <p style="color: blanchedalmond">User: {{user.username}}</p>
+    <p style="color: blanchedalmond" li>Mail: {{user.email}}</p>
+    <p style="color: blanchedalmond" i>First Name: {{user.first_name}}</p>
+    <p style="color: blanchedalmond">Last Name: {{user.last_name}}</p>
+  </ul>
+  <div>
+    <a href="/AppInvocador/Perfil/editarPerfil" class="botonPiola4">
+      Editar Perfil</a
+    >
+
+    <a href="/AppInvocador/Perfil/changeAvatar" class="botonPiola2"> Avatar</a>
+  </div>
+</div>
+{% endblock content %}

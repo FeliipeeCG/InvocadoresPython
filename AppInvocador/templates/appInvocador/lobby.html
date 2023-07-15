@@ -22,6 +22,8 @@
               <a href="{% url 'getInvocador' %}">Buscar Invocador</a>
             </div>
           </li>
+          <li><a href="{% url 'perfil' %}">{{avatar}}</a></li>
+          <li><a href="{% url 'perfil' %}">{{user.username}}</a></li>
           <li><a href="{% url 'Logout' %}">Logout</a></li>
           <li style="float: right">
             <a
