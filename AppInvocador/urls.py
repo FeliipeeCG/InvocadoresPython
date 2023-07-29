@@ -3,6 +3,7 @@ from django.contrib.auth.views import LogoutView
 from AppInvocador.views import *
 
 urlpatterns = [
+    path('', loginApp),
     path('lobby/', lobby, name="lobby"),
     path('grieta/', grieta, name="grieta"),
     path('lolero/', lolero, name="lolero"),
