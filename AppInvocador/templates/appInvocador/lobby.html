@@ -5,16 +5,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="{% static 'AppInvocador/css/main.css'%}" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
     <title>Home</title>
   </head>
   <body>
     <nav>
-      <div>
+      <div class="barra">
         <ul class="nav">
           <li><a href="{% url 'lobby' %}">LOBBY</a></li>
-          <li><a href="{% url 'partida' %}">INVADE</a></li>
-          <li><a href="{% url 'lolero' %}">INVOCADORES</a></li>
-          <li><a href="{% url 'coach' %}">PENTA</a></li>
+          <li><a href="{% url 'lolero' %}">AMIGOS</a></li>
+          <li><a href="{% url 'coach' %}">PENTAS</a></li>
           <li class="dropdown">
             <a href="javascript:void(0)" class="dropbtn">INVOCADORES</a>
             <div class="dropdown-content">
@@ -22,55 +22,133 @@
               <a href="{% url 'getInvocador' %}">Buscar Invocador</a>
             </div>
           </li>
-          <li>
-            <a href="{% url 'perfil' %}"
-              ><img src="{{avatar}}" width="40px"
-            /></a>
-          </li>
-          <li><a href="{% url 'perfil' %}">{{user.username}}</a></li>
-          <li >
-            <a href="{% url 'Logout' %}">Logout</a>
-          </li>
-          <li style="float: right" class="active"><a href="https://www.instagram.com/feliipeecg/">IG DEL COACH</a></li>
 
+          <li style="float: right" class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">
+              <img
+                src="{{avatar}}"
+                width="100px"
+                height="50px"
+                style="border-radius: 40px"
+              />
+            </a>
+            <div class="dropdown-content">
+              <a href="{% url 'perfil' %}">{{user.username}}</a>
+              <a href="{% url 'Logout' %}">Logout</a>
+            </div>
+          </li>
         </ul>
       </div>
     </nav>
     <header class="header">
-      <div class="container">
+      <div>
         <h1 class="header__h1">La Grieta del Madeo</h1>
       </div>
     </header>
     {% block content %}
-    <div>
-      <p>Sean todos bienvenidos al peor lugar para perder el tiempo :)</p>
-      <P>Me presento soy FelipeCG y soy el coach (elo madera IV) y ofrezco ayuda a los que necesiten</P>
-      <p>Y si desean contactarse conmingo en la esquina superior dereccha les dejo mi IG</p>
-    </div>
-
-    <div class="container">
-      <p class="arial">
-        Aca tenemos a un jugador que casi se lleva la pentakill, gracias a los consejos de su tutor.
+    <div
+      style="
+        font-family: Rockwell, Courier Bold, Courier, Georgia, Times,
+          Times New Roman, serif;
+      "
+    >
+      <p>
+        Bienvenidos a la grieta del madeo, donde te enseñaremos a carrear todas
+        sus rankeds
       </p>
-  
-      <div >
-        <a href="https://youtu.be/u-JAWfcu3E0" target="_blank">
+      <br />
+      <p style="color: yellow">
+        ACA TE DEJAMOS UNA TOP LIST DE LOS MEJORES PERSONAJES EN CADA LINEA:
+      </p>
+      <br />
+      <br /><br />
+      <div class="cajaImagen">
+        <div class="box">
           <img
-          src="https://i.ytimg.com/vi/U8c0NNQZp-M/maxresdefault.jpg"
-          height="90%"
-          width="90%"
-          alt=""
-          a
-        />
+            src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Gnar_22.jpg"
+            alt="gnar"
+          />
+          <div class="centrado">
+            <a
+              target="_blank"
+              href="https://www.op.gg/champions?region=global&tier=all&position=top"
+            >
+              <h2>TOP</h2></a
+            >
+          </div>
+        </div>
+        <div class="box">
+          <img
+            src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Shyvana_8.jpg"
+            alt="shy"
+          />
+          <div class="centrado">
+            <a
+              target="_blank"
+              href="https://www.op.gg/champions?region=global&tier=all&position=jungle"
+            >
+              <h2>JG</h2></a
+            >
+          </div>
+        </div>
+        <div class="box">
+          <img
+            src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Brand_22.jpg"
+            alt="brand"
+          />
+          <div class="centrado">
+            <a
+              target="_blank"
+              href="https://www.op.gg/champions?region=global&tier=all&position=mid"
+            >
+              <h2>MID</h2></a
+            >
+          </div>
+        </div>
+        <div class="box">
+          <img
+            src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Samira_1.jpg"
+            alt="samira"
+          />
+          <div class="centrado">
+            <a
+              target="_blank"
+              href="https://www.op.gg/champions?region=global&tier=all&position=adc"
+            >
+              <h2>ADC</h2></a
+            >
+          </div>
+        </div>
+        <div class="box">
+          <img
+            src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Karma_27.jpg"
+            alt="karma"
+          />
+          <div class="centrado">
+            <a
+              target="_blank"
+              href="https://www.op.gg/champions?region=global&tier=all&position=support"
+            >
+              <h2>SUP</h2></a
+            >
+          </div>
+        </div>
       </div>
-  
-  
-  
+      <br />
+      <br />
     </div>
 
-
-
-    
     {% endblock content %}
+    <footer>
+      <p style="text-align: center">
+        Propiedad intelectual de:
+        <a
+          style="color: rgb(218, 197, 8)"
+          target="_blank"
+          href="https://www.instagram.com/feliipeecg/"
+          >FelipeCG</a
+        >
+      </p>
+    </footer>
   </body>
 </html>

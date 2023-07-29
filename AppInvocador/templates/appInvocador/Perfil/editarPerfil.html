@@ -1,6 +1,9 @@
 {% extends "../lobby.html" %} {% load static %} {% block content %}
 <h2>Editar Perfil</h2>
-<h3>{{user.username}}</h3>
+<div>
+  <h3>{{user.username}}</h3>
+  <img src="{{avatar}}" width="120px" style="border-radius: 40px" />
+</div>
 
 <form method="POST">
   {% csrf_token %}

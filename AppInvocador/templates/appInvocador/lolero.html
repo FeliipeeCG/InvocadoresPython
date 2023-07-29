@@ -1,12 +1,9 @@
 <div>
   {% extends "AppInvocador/lobby.html" %} {% load static %} {% block content %}
-  <h2>LOLEROS :)</h2>
-  <p>
-    Loleros que pagaron por un servicio del coach y lograron subir en sus
-    divisiones:
-  </p>
-  <table>
-    <tr>
+  <h2>LISTA DE AMIGOS DE LA GRIETA</h2>
+  <p style="text-align: center">(Mancos que te caen bien o que te carrean)</p>
+  <table style="text-align: center">
+    <tr style="text-align: center">
       <th>NOMBRE</th>
       <th>NICK</th>
       <th>EDITAR</th>
@@ -38,15 +35,19 @@
     </tr>
     {% endfor %}
   </table>
-  <!--div>
-    <h2>EDITAR INVOCADOR</h2>
-    <form action="/AppInvocador/editarInvocador/" method="post"> {% csrf_token %}
-      <table>
-        {{miFormulario.as_table}}
-      </table>
-    </form>
-  </!--div-->
+
   <div class="fromSetInvocador">{% block setInvocador %} {% endblock %}</div>
   <div class="fromGetInvocador">{% block getInvocador %} {% endblock %}</div>
+  <div class="cajaVideos">
+    <br />
+    <img
+      src="https://images4.alphacoders.com/161/161494.jpg"
+      height="50%"
+      width="80%"
+      alt="a la grieta"
+    />
+    <br />
+    <br />
+  </div>
   {% endblock content %}
 </div>

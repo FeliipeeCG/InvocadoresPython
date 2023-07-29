@@ -78,7 +78,7 @@ def eliminarInvocador(request, nombre_invocador):
     Invocador.delete()
     miFormulario = formSetInvocador()
     Invocadores = invocador.objects.all()
-    return render(request, "AppInvocador/setInvocador.html", {"miFormulario": miFormulario, "Invocador": Invocador})
+    return render(request, "AppInvocador/amigoEliminado.html", {"miFormulario": miFormulario, "Invocador": Invocador})
 
 
 @login_required

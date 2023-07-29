@@ -21,7 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', lobby),
+    path('', include('AppInvocador.urls')),
     path('admin/', admin.site.urls),
     path('lobby/', lobby),
     path('perfil/', perfil),
